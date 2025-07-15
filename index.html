@@ -36,7 +36,7 @@
       border-radius: 0.75rem;
       margin-bottom: 2rem;
     }
-    <p>🎯 Preparing for IBPS? <a href="ibps.html">Check IBPS Testbook Deals here</a>.</p>
+  
 
     .coupon-code {
       font-size: 2rem;
@@ -87,6 +87,39 @@
   font-size: 1.1rem;
   margin-top: 1rem;
 }
+    .coupon-code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+#coupon-code {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0c4a6e;
+  letter-spacing: 2px;
+  background: #fff;
+  padding: 0.3rem 0.7rem;
+  border: 2px solid #0ea5e9;
+  border-radius: 6px;
+}
+
+.copy-btn {
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: #0284c7;
+}
+
 
   </style>
 </head>
@@ -96,16 +129,20 @@
     <p>Get 10% OFF on Testbook Pass Pro & Pro MAX</p>
   </header>
   <main class="container">
-    <div class="coupon-box">
-      <p>Use the Coupon Code:</p>
-      <div class="coupon-code">DV0JGC</div>
-      <p>Apply at checkout to instantly save 10%</p>
-      <a href="https://testbook.com/" target="_blank">
-        <button class="cta-button">Go to Testbook &rarr;</button>
-      </a>
-    </div>
+   <div class="coupon-box">
+  <p>Use the Coupon Code:</p>
+  <div class="coupon-code-container">
+    <span id="coupon-code">DV0JGC</span>
+    <button class="copy-btn" onclick="copyCode()">📋 Copy</button>
+  </div>
+  <p id="copy-confirm" style="display:none; color:green; margin-top: 0.5rem;">✔️ Code copied!</p>
+  <p>Apply at checkout to instantly save 10%</p>
+  <a href="https://testbook.com/" target="_blank">
+    <button class="cta-button">Go to Testbook &rarr;</button>
+  </a>
+</div>
 
-    <section>
+   <section>
       <h2>Why Use This Code?</h2>
       <ul>
         <li>✅ 100% working and tested coupon</li>
@@ -146,5 +183,16 @@
     <p>&copy; 2025 TestbookCouponSaver.com</p>
     <p>Not affiliated with Testbook. This is a fan-made promo sharing site.</p>
   </footer>
+  <script>
+  function copyCode() {
+    const code = document.getElementById('coupon-code').innerText;
+    navigator.clipboard.writeText(code).then(function() {
+      const confirm = document.getElementById('copy-confirm');
+      confirm.style.display = 'block';
+      setTimeout(() => confirm.style.display = 'none', 2000);
+    });
+  }
+</script>
+
 </body>
 </html>
